@@ -1,0 +1,15 @@
+<%# <%= turbo_stream.prepend "quotes", partial: "quotes/quote", locals: { quote: @quote } %>
+<%= turbo_stream.prepend "quotes", @quote %>
+<%= turbo_stream.update Quote.new, "" %>
+
+
+<%# render partial: "quotes/quote", locals: { quote: @quote }
+<%# is EQUIVALENT TO %>
+<%# render @quote %>
+
+<%# WITH BLOCK %>
+<%# <%= turbo_stream.prepend "quotes" do %>
+  <%# <%= render @quote %>
+<%# <% end %>
+
+<%# <%= turbo_stream.update Quote.new, "" %>
