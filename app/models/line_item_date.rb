@@ -1,5 +1,6 @@
 class LineItemDate < ApplicationRecord
   belongs_to :quote
+  has_many :line_items, dependent: :destroy
 
   # The date must be present on each line item date && A quote won't be able to have the same date twice
   validates :date, presence: true, uniqueness: { scope: :quote_id }

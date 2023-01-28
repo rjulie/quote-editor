@@ -6,7 +6,10 @@ class QuotesController < ApplicationController
   end
 
   def show
-    @line_item_dates = @quote.line_item_dates.ordered
+    # @line_item_dates = @quote.line_item_dates.ordered
+    @line_item_dates = @quote.line_item_dates.includes(:line_items).ordered
+    # we now only query the line_items table once to display the page
+    # SELECT "line_items".* FROM "line_items" WHERE "line_items"."line_item_date_id" IN ($1, $2)
   end
 
   def new
