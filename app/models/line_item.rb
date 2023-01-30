@@ -10,4 +10,8 @@ class LineItem < ApplicationRecord
   # line_item.line_item_date.quote
   # is equivalent to
   # line_item.quote
+
+  def total_price
+    quantity * unit_price
+  end
 end
